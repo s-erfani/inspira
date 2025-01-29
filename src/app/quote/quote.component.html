@@ -3,8 +3,8 @@
     {{ selectedQuote.quote }}
   </div>
   <div (click)="searchOnGoogle(selectedQuote.author, $event)" class="text-2xl font-thin self-end !m-4"
-       [ngClass]="invalidAuthors.includes(selectedQuote.author)? '' : 'action-icon' "
-       [matTooltip]="invalidAuthors.includes(selectedQuote.author) ? '' : 'About'">
+       [ngClass]="invalidAuthors.includes(selectedQuote.author.toLowerCase())? '' : 'action-icon' "
+       [matTooltip]="invalidAuthors.includes(selectedQuote.author.toLowerCase()) ? '' : 'About'">
     {{ selectedQuote.author }}
   </div>
   <div class="flex flex-row self-center ">

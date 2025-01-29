@@ -27,15 +27,7 @@ export class TopBarComponent {
   }
 
   openSettingDialog() {
-    const dialogRef = this.dialog.open(SettingDialogComponent, {
-      data: {},
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-      if (result !== undefined) {
-      }
-    });
+    this.dialog.open(SettingDialogComponent, {});
   }
 
 }

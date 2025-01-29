@@ -48,7 +48,7 @@ export class QuoteComponent implements OnInit {
   selectedQuote!: QuoteModel;
   favorites: QuoteModel[] = [];
   showQuote: boolean = true;
-  invalidAuthors: string[] = ['unknown', 'Unknown', 'anonymous', 'Anonymous', 'Proverb', 'proverb', 'Latin Proverb']
+  invalidAuthors: string[] = ['unknown', 'anonymous', 'proverb', 'latin proverb','japanese proverb','ancient indian proverb','chinese proverb','african proverb','latin proverb']
   shakeCounter: number = 0;
 
   ngOnInit(): void {
@@ -89,7 +89,7 @@ export class QuoteComponent implements OnInit {
   }
 
   searchOnGoogle(author: string, event: MouseEvent) {
-    if (!this.invalidAuthors.includes(author)) {
+    if (!this.invalidAuthors.includes(author.toLowerCase())) {
       event.preventDefault();
       const googleSearchUrl = `https://www.google.com/search?q=${encodeURIComponent(author)}`;
       window.open(googleSearchUrl, '_blank');

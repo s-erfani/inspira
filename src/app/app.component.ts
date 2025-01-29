@@ -48,7 +48,7 @@ export class AppComponent implements OnInit {
         if (data && data[0]?.urls?.regular) {
           this.backgroundImageUrl = data[0].urls.regular;
         } else {
-          this.backgroundImageUrl = '/assets/images/background1.jpg';
+          this.backgroundImageUrl = './assets/images/background1.jpg';
         }
       })
   }
