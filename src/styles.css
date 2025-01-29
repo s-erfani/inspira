@@ -1,0 +1,18 @@
+/* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*body {*/
+/*  @apply bg-cover bg-center;*/
+/*  background-image: url('/assets/images/background1.jpg');*/
+/*}*/
+
+.action-icon {
+  cursor: pointer;
+  margin-right: 8px;
+}
+
+.action-icon :hover {
+  color: orange;
+}

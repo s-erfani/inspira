@@ -1,0 +1,39 @@
+<div *ngIf="showQuote" class="flex flex-col text-white" [@fadeAnimation]>
+  <div class="text-3xl font-bold text-center">
+    {{ selectedQuote.quote }}
+  </div>
+  <div (click)="searchOnGoogle(selectedQuote.author, $event)" class="text-2xl font-thin self-end !m-4"
+       [ngClass]="invalidAuthors.includes(selectedQuote.author)? '' : 'action-icon' "
+       [matTooltip]="invalidAuthors.includes(selectedQuote.author) ? '' : 'About'">
+    {{ selectedQuote.author }}
+  </div>
+  <div class="flex flex-row self-center ">
+    <div (click)="addToFavorites(selectedQuote)" matTooltip="Favorite" class="action-icon"
+         [@shakeAnimation]="shakeCounter">
+      <svg xmlns="http://www.w3.org/2000/svg" [attr.fill]="isFavorite(selectedQuote) ? 'white' : 'none'"
+           viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+           class="size-6">
+        <path stroke-linecap="round" stroke-linejoin="round"
+              [attr.d]="svgPaths.heart"/>
+      </svg>
+    </div>
+    <div (click)="skipQuote()" class="action-icon" matTooltip="Skip">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+           class="size-6">
+        <path stroke-linecap="round" stroke-linejoin="round"
+              [attr.d]="svgPaths.skip"/>
+      </svg>
+    </div>
+    <div [matMenuTriggerFor]="shareMenu" class="action-icon" matTooltip="Share">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+           class="size-6">
+        <path stroke-linecap="round" stroke-linejoin="round"
+              [attr.d]="svgPaths.share"/>
+      </svg>
+    </div>
+  </div>
+</div>
+
+<mat-menu #shareMenu="matMenu">
+<app-share-menu [quote]="selectedQuote"></app-share-menu>
+</mat-menu>

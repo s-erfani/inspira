@@ -1,0 +1,8 @@
+<div class="text-white">
+  <div *ngIf="settingService.getSetting('gregorianCalendar')">
+    {{ currentDate | date:'yyyy/MM/dd' }}
+  </div>
+  <div *ngIf="settingService.getSetting('persianCalendar')">
+    {{persianDate}}
+  </div>
+</div>

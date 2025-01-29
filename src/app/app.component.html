@@ -1,0 +1,11 @@
+<app-top-bar></app-top-bar>
+<app-clock-with-date></app-clock-with-date>
+<div
+  [ngStyle]="{ 'background-image': 'url(' + backgroundImageUrl + ')', 'background-size': 'cover', 'background-position': 'center', 'height': '100vh' }"
+  class="flex items-center justify-center h-screen animated-bg">
+  <div class="overlay"></div>
+  <div class="quote-container">
+    <app-quote></app-quote>
+  </div>
+</div>
+<app-mood-tracker *ngIf="settingService.getSetting('moodTracker')"></app-mood-tracker>

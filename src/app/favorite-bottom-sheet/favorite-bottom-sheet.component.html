@@ -1,0 +1,36 @@
+<ng-scrollbar >
+  <mat-nav-list>
+
+  @for (favoriteItem of favorites; track favoriteItem.quote) {
+    <div class="flex flex-row">
+      <div class="flex-grow mb-2 mt-2">
+        <div class="font-semibold">{{ favoriteItem.quote }}</div>
+        <div class="text-right">{{ favoriteItem.author }}</div>
+      </div>
+      <div class="ml-4 flex flex-col items-center self-center "
+      >
+        <div class="flex flex-row mr-4">
+          <svg (click)="removeFromFavorites(favoriteItem)" xmlns="http://www.w3.org/2000/svg" fill="none"
+               viewBox="0 0 24 24" stroke-width="1.5" stroke="red"
+               class="size-6 mb-2 cursor-pointer">
+            <path stroke-linecap="round" stroke-linejoin="round"
+                  [attr.d]="svgPaths.remove"/>
+          </svg>
+          <svg [matMenuTriggerFor]="shareMenu" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+               stroke="blue"
+               class="size-6">
+            <path stroke-linecap="round" stroke-linejoin="round"
+                  [attr.d]="svgPaths.share"
+                  class="cursor-pointer"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+    <mat-divider></mat-divider>
+    <mat-menu #shareMenu="matMenu">
+      <app-share-menu [quote]="favoriteItem"></app-share-menu>
+    </mat-menu>
+  }
+</mat-nav-list>
+</ng-scrollbar>
+

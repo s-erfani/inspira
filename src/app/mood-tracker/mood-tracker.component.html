@@ -1,0 +1,27 @@
+<div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 text-center z-10">
+  @if (moodMessage == '') {
+    <div class="text-gray-300 text-sm mb-2">How is your mood?</div>
+    <div class="flex justify-center space-x-4">
+      <svg (click)="setMoodMessage('bad')" class="cursor-pointer" width="32px" height="32px" viewBox="0 0 15 15" fill="none"
+           xmlns="http://www.w3.org/2000/svg">
+        <path
+          [attr.d]="svgPaths.sadFace"
+          fill="#ffffff"/>
+      </svg>
+      <svg (click)="setMoodMessage('neutral')" class="cursor-pointer" width="32px" height="32px" viewBox="0 0 15 15"
+           fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path stroke="#ffffff"
+              [attr.d]="svgPaths.neutralFace"/>
+      </svg>
+      <svg (click)="setMoodMessage('good')" class="cursor-pointer" width="32px" height="32px" viewBox="0 0 0.6 0.6"
+           fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path
+          [attr.d]="svgPaths.happyFace"
+          fill="#ffffff"/>
+      </svg>
+    </div>
+  } @else {
+    <div  [@fadeAnimation]="messageVisibility"
+          class="text-white "> {{ moodMessage }}</div>
+  }
+</div>

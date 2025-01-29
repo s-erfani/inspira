@@ -1,0 +1,13 @@
+<div class="text-white m-4 absolute cursor-pointer z-10  ">
+  <svg (click)="openFavoriteBottomSheet()" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+       stroke-width="1.5" stroke="currentColor" class="size-6 mr-4 mb-4" matTooltip="Favorites"
+       matTooltipPosition="right">
+    <path stroke-linecap="round" stroke-linejoin="round" [attr.d]="svgPaths.bookmark"/>
+  </svg>
+  <svg (click)="openSettingDialog()" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+       matTooltip="Setting" matTooltipPosition="right" stroke="currentColor"
+       class="size-6">
+    <path stroke-linecap="round" stroke-linejoin="round" [attr.d]="svgPaths.settingOuterLine"/>
+    <path stroke-linecap="round" stroke-linejoin="round" [attr.d]="svgPaths.settingInnerLine"/>
+  </svg>
+</div>
