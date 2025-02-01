@@ -5,6 +5,7 @@ import {FavoriteBottomSheetComponent} from '../favorite-bottom-sheet/favorite-bo
 import {MatBottomSheet} from '@angular/material/bottom-sheet';
 import {MatDialog} from '@angular/material/dialog';
 import {SettingDialogComponent} from '../setting-dialog/setting-dialog.component';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-top-bar',
@@ -17,10 +18,15 @@ export class TopBarComponent {
   protected readonly svgPaths = SVG_PATHS;
   private _bottomSheet = inject(MatBottomSheet);
   readonly dialog = inject(MatDialog);
+  private _snackBar = inject(MatSnackBar);
 
   openFavoriteBottomSheet() {
     if (JSON.parse(localStorage.getItem('favorites') || '[]').length == 0) {
-      alert("No favorites found.");
+      this._snackBar.open('No favorites found.', 'Okay', {
+        duration: 3000,
+        horizontalPosition: "center",
+        verticalPosition: "top",
+      });
     } else {
       this._bottomSheet.open(FavoriteBottomSheetComponent);
     }
