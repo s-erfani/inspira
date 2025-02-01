@@ -29,6 +29,7 @@ export class SettingDialogComponent {
     { key: 'gregorianCalendar', label: 'Gregorian Calendar' },
     { key: 'persianCalendar', label: 'Persian Calendar' },
     { key: 'moodTracker', label: 'Mood Tracker' },
+    { key: 'dynamicBackground', label: 'Dynamic Background' },
   ];
 
   constructor(public settingsService: SettingService) {}

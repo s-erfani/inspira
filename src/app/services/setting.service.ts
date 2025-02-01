@@ -11,6 +11,7 @@ export class SettingService {
     gregorianCalendar: true,
     persianCalendar: true,
     moodTracker: true,
+    dynamicBackground: true,
   };
 
   constructor() {

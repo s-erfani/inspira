@@ -47,7 +47,7 @@ export class AppComponent implements OnInit {
         })
       )
       .subscribe((data) => {
-        if (data && data[0]?.urls?.regular) {
+        if (data && data[0]?.urls?.regular && this.settingService.getSetting('dynamicBackground')) {
           this.backgroundImageUrl = data[0].urls.regular;
         } else {
           this.backgroundImageUrl = './assets/images/background1.jpg';
