@@ -8,6 +8,7 @@ import {ClockWithDateComponent} from './clock-with-date/clock-with-date.componen
 import {SVG_PATHS} from './shared-components/svg-paths';
 import {TopBarComponent} from './top-bar/top-bar.component';
 import {SettingService} from './services/setting.service';
+import {GithubButtonComponent} from './github-button/github-button.component';
 
 @Component({
   selector: 'app-root',
@@ -18,6 +19,7 @@ import {SettingService} from './services/setting.service';
     ClockWithDateComponent,
     TopBarComponent,
     NgIf,
+    GithubButtonComponent,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
