@@ -3,7 +3,6 @@ import {QuoteComponent} from './quote/quote.component';
 import {MoodTrackerComponent} from './mood-tracker/mood-tracker.component';
 import {BackgroundService} from './services/background.service';
 import {NgIf, NgStyle} from '@angular/common';
-import {catchError, of, timeout} from 'rxjs';
 import {ClockWithDateComponent} from './clock-with-date/clock-with-date.component';
 import {SVG_PATHS} from './shared-components/svg-paths';
 import {TopBarComponent} from './top-bar/top-bar.component';
@@ -26,7 +25,6 @@ import {GithubButtonComponent} from './github-button/github-button.component';
 })
 
 export class AppComponent implements OnInit {
-  private apiTimeout = 1000;
   backgroundImageUrl: string = '';
   svgPaths = SVG_PATHS;
 
@@ -38,21 +36,14 @@ export class AppComponent implements OnInit {
   }
 
   loadBackgroundImage() {
-    this.backgroundService.getRandomBackground()
-      .pipe(
-        timeout(this.apiTimeout),
-        catchError(() => {
-          console.error('Failed to fetch background. Using default image.');
-          return of(null);
-        })
-      )
-      .subscribe((data) => {
-        if (data && data[0]?.urls?.regular && this.settingService.getSetting('dynamicBackground')) {
-          this.backgroundImageUrl = data[0].urls.regular;
-        } else {
-          this.backgroundImageUrl = './images/background1.jpg';
-        }
-      })
+    if (this.settingService.getSetting('dynamicBackground')) {
+      this.backgroundService.getCachedBackgroundOrFetchNew().subscribe(imageUrl => {
+        console.log(imageUrl);
+        this.backgroundImageUrl = imageUrl;
+      });
+    } else {
+      this.backgroundImageUrl = './images/background1.jpg';
+    }
   }
 }
 
