@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {QuoteModel} from '../models/quote';
-import quotesList from "../../assets/quotes.json"
+import quotesList from "../../../public/quotes.json"
 import {MatTooltip} from '@angular/material/tooltip';
 import {NgClass, NgIf} from '@angular/common';
 import {animate, keyframes, style, transition, trigger} from '@angular/animations';
