@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {catchError, map, Observable, of, tap, timeout} from 'rxjs';
+import {catchError, map, Observable, of, timeout} from 'rxjs';
 import {environment} from '../../enviroments/enviroments';
 
 @Injectable({
