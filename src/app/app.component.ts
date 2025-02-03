@@ -42,7 +42,7 @@ export class AppComponent implements OnInit {
         this.backgroundImageUrl = imageUrl;
       });
     } else {
-      this.backgroundImageUrl = '/images/background1.jpg';
+      this.backgroundImageUrl = './images/background1.jpg';
     }
   }
 }
