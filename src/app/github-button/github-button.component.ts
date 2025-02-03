@@ -8,7 +8,6 @@ import {MatTooltip} from '@angular/material/tooltip';
     MatTooltip
   ],
   templateUrl: './github-button.component.html',
-  styleUrl: './github-button.component.css'
 })
 export class GithubButtonComponent {
   svgPaths = SVG_PATHS;
