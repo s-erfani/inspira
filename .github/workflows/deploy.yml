@@ -7,7 +7,7 @@ on:
 
 jobs:
   deploy:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest  # Change to Windows runner
 
     steps:
       - name: Checkout repo
@@ -25,7 +25,7 @@ jobs:
         run: npm install -g @angular/cli
 
       - name: Build Angular app
-        run: ng build --configuration=production; mv -Path "docs/browser/*" -Destination "docs/"; rm -rf "docs/browser"
+        run: ng build --configuration=production; Move-Item -Path "docs/browser/*" -Destination "docs/"; Remove-Item -Recurse -Force "docs/browser"
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
