@@ -1,10 +1,10 @@
 {
   "name": "inspira",
-  "version": "1.0.1",
+  "version": "0.0.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build --configuration=production; Move-Item -Path \"docs/browser/*\" -Destination \"docs/\"; Remove-Item -Recurse -Force \"docs/browser\"\n",
+    "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
