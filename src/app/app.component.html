@@ -4,10 +4,7 @@
   [ngStyle]="{ 'background-image': 'url(' + backgroundImageUrl + ')', 'background-size': 'cover', 'background-position': 'center', 'height': '100vh' }"
   class="flex items-center justify-center h-screen animated-bg">
   <div class="overlay"></div>
-  <div class="quote-container">
     <app-quote></app-quote>
-  </div>
 </div>
 <app-mood-tracker *ngIf="settingService.getSetting('moodTracker')"></app-mood-tracker>
-
 <app-github-button></app-github-button>
