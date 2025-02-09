@@ -23,14 +23,12 @@ import {NgScrollbar} from 'ngx-scrollbar';
 export class FavoriteBottomSheetComponent implements OnInit {
   svgPaths = SVG_PATHS;
   favorites: QuoteModel[] = [];
-
-  ngOnInit(): void {
-    this.favorites = JSON.parse(localStorage.getItem('favorites') || '[]')
-  }
-
-  private _bottomSheetRef =
+  private readonly _bottomSheetRef =
     inject<MatBottomSheetRef<FavoriteBottomSheetComponent>>(MatBottomSheetRef);
 
+  ngOnInit(): void {
+    this.favorites = JSON.parse(localStorage.getItem('favorites') ?? '[]')
+  }
 
   removeFromFavorites(favoriteItem: any): void {
     this.favorites = this.favorites.filter(item => item !== favoriteItem);

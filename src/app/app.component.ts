@@ -28,7 +28,7 @@ export class AppComponent implements OnInit {
   backgroundImageUrl: string = '';
   svgPaths = SVG_PATHS;
 
-  constructor(private backgroundService: BackgroundService, public settingService: SettingService) {
+  constructor(private readonly backgroundService: BackgroundService, public settingService: SettingService) {
   }
 
   ngOnInit(): void {

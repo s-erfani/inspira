@@ -7,12 +7,12 @@ import {environment} from '../../enviroments/enviroments';
   providedIn: 'root'
 })
 export class BackgroundService {
-  private apiUrl = `https://api.unsplash.com/photos/random?client_id=${environment.unsplashApiKey}&query=calm&orientation=landscape&count=1`;
-  private cacheKey = 'cachedBackground';
-  private cacheDuration = 1 * 60 * 60 * 1000; // Cache for 1 hour
-  private apiTimeout = 1000;
+  private readonly apiUrl = `https://api.unsplash.com/photos/random?client_id=${environment.unsplashApiKey}&query=calm&orientation=landscape&count=1`;
+  private readonly cacheKey = 'cachedBackground';
+  private readonly cacheDuration = 1 * 60 * 60 * 1000; // Cache for 1 hour
+  private readonly apiTimeout = 1000;
 
-  constructor(private http: HttpClient) {}
+  constructor(private readonly http: HttpClient) {}
 
   getCachedBackgroundOrFetchNew(): Observable<string> {
     const cachedData = localStorage.getItem(this.cacheKey);

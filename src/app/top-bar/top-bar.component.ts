@@ -16,9 +16,9 @@ import {MatSnackBar} from '@angular/material/snack-bar';
 })
 export class TopBarComponent {
   protected readonly svgPaths = SVG_PATHS;
-  private _bottomSheet = inject(MatBottomSheet);
+  private readonly _bottomSheet = inject(MatBottomSheet);
   readonly dialog = inject(MatDialog);
-  private _snackBar = inject(MatSnackBar);
+  private readonly _snackBar = inject(MatSnackBar);
 
   openFavoriteBottomSheet() {
     if (JSON.parse(localStorage.getItem('favorites') || '[]').length == 0) {
