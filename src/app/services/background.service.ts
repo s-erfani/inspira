@@ -9,7 +9,7 @@ import {environment} from '../../enviroments/enviroments';
 export class BackgroundService {
   private readonly apiUrl = `https://api.unsplash.com/photos/random?client_id=${environment.unsplashApiKey}&query=calm&orientation=landscape&count=1`;
   private readonly cacheKey = 'cachedBackground';
-  private readonly cacheDuration = 1 * 60 * 60 * 1000; // Cache for 1 hour
+  private readonly cacheDuration = 2 * 60 * 60 * 1000; // Cache for 2 hour
   private readonly apiTimeout = 1000;
 
   constructor(private readonly http: HttpClient) {}
